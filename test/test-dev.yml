@@ -1,0 +1,109 @@
+druid:
+  loginPassword: ''
+  loginUsername: ''
+  resetEnable: true
+elasticsearch:
+  cluster:
+    name: es-dev
+  host: 127.0.0.1
+  pool: 5
+  port: 9200
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 240000
+        timeout:
+          enabled: true
+logging:
+  level:
+    com:
+      inmitech:
+        dearunner: debug
+    org:
+      springframework:
+        web: debug
+management:
+  endpoint:
+    health:
+      showDetails: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  server:
+    servlet:
+      contextPath: /
+    ssl:
+      enabled: false
+mybatis:
+  configuration:
+    default-statement-timeout: 25
+    lazy-loading-enabled: true
+    map-underscore-to-camel-case: true
+    safe-row-bounds-enabled: false
+    use-generated-keys: false
+  mapperLocations: classpath:com/inmitech/dearunner/**/*.xml
+  typeAliasesPackage: com.inmitech.dearunner.pojo.entity
+pagehelper:
+  reasonable: true
+ribbon:
+  ConnectTimeout: 60000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  ReadTimeout: 60000
+  eureka:
+    enabled: true
+server:
+  port: 7020
+spring:
+  application:
+    name: test
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    filters: stat,wall
+    initialSize: 0
+    maxActive: 20
+    maxWait: 10000
+    minIdle: 1
+    name: dearunner
+    password: cipher:Lc+b8YxZ0LhQdZRtZiieUg==
+    testOnBorrow: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 18800
+    url: jdbc:mysql://127.0.0.1:3306/dearunner_dev?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: app
+    validationQuery: select 'x'
+  profiles:
+    active: dev
+  redis:
+    database: 0
+    host: 127.0.0.1
+    jedis:
+      pool:
+        maxActive: 20
+        maxIdle: 20
+        maxWait: 3000
+        minIdle: 0
+    password: cipher:zBEXkLqmpo3XDjgIwxZqCQ==
+    port: 6379
+    timeout: 3000
+  servlet:
+    multipart:
+      maxFileSize: 1MB
+      maxRequestSize: 10MB
+tomcat:
+  accessLogEnabled: false
+  backgroundProcessorDelay: 30
+  basedir: ''
+  protocolHeader: x-forwarded-proto
+  remoteIpHeader: x-forwarded-for
