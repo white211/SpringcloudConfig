@@ -1,0 +1,71 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: gateway-server
+  profiles:
+    active: dev
+  redis:
+    database: 0
+    host: redis.wkclz.com
+    port: 6379
+    password: cipher:/8hB5yiRCZ6GM4QFgf7YpvZPrfv/D1MK2+AMwlKB7Es=
+    timeout: 3000
+    jedis:
+      pool:
+        maxActive: 20
+        maxWait: 3000
+        maxIdle: 20
+        minIdle: 0
+  jmx:
+    enabled: false
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 是否可以通过其他服务的serviceId来转发到具体的服务实例。默认为false
+          # 为true,自动创建路由,路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问
+          enabled: true
+          lowerCaseServiceId: true
+
+      default-filters:
+        - PrefixPath=/httpbin
+        - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+
+      routes:
+        # =====================================
+        # to run server
+        # $ wscat --listen 9000
+        # to run client
+        # $ wscat --connect ws://localhost:8080/echo
+        - id: lz_cas
+          uri: lb://lz-cas
+          order: 9000
+          predicates:
+            - Path=/cas/**
+          filters:
+            - StripPrefix=1 # 去除请求地址前缀
+
+        # =====================================
+        - id: lz_sys
+          uri: lb://lz-sys
+          order: 9000
+          predicates:
+            - Path=/sys/**
+          filters:
+            - StripPrefix=1 # 去除请求地址前缀
+
+druid:
+  loginUsername:
+  loginPassword:
+  resetEnable: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
+    com.wkclz.soa.gateway: debug
