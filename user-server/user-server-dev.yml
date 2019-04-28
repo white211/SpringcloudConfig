@@ -17,7 +17,7 @@ spring:
     testWhileIdle: true
     timeBetweenEvictionRunsMillis: 18800
     filters: stat,wall
-    url: jdbc:mysql://test.wkclz.com:3306/microservice?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/microservice?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
     driverClassName: com.mysql.cj.jdbc.Driver
