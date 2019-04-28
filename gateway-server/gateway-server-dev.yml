@@ -9,7 +9,7 @@ management:
 
 spring:
   application:
-    name: user-server
+    name: gateway-server
   profiles:
     active: dev
   redis:
