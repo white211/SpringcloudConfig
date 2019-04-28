@@ -50,7 +50,7 @@ mybatis-plus:
        meta-object-handler:
     configuration:
        map-underscore-to-camel-case: true
-       cache-enabled: falseue
+       cache-enabled: false
 
 druid:
   loginUsername:
