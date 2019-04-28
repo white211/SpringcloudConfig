@@ -7,20 +7,13 @@ spring:
   profiles:
     active: dev
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    filters: stat,wall
-    initialSize: 0
-    maxActive: 20
-    maxWait: 10000
-    minIdle: 1
-    name: userserver
-    password: root
-    testOnBorrow: false
-    testWhileIdle: true
-    timeBetweenEvictionRunsMillis: 18800
-    url: jdbc:mysql://127.0.0.1:3306/microservice?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/microservice?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    validationQuery: select 'x'  
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    
   redis:
     database: 0
     host: 127.0.0.1
@@ -75,6 +68,24 @@ spring:
  # loginUsername:
   #loginPassword:
   #resetEnable: true
+mybatis-plus:
+    mapper-locations: classpath:/mybatis/mapper/*.xml
+    typeAliasesPackage: com.white.userserver.pojo.entity
+#    typeEnumsPackage: com.naswork.erp.entity.enums
+    global-config:
+       id-type: 2
+       field-strategy: 2
+       db-column-underline: true
+       refresh-mapper: true
+#       capital-mode: true
+#       key-generator:
+       logic-delete-value: 0
+       logic-not-delete-value: 0
+       sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+       meta-object-handler:
+    configuration:
+       map-underscore-to-camel-case: true
+       cache-enabled: false
 
 logging:
   level:
