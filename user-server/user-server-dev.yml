@@ -13,13 +13,13 @@ spring:
     maxActive: 20
     maxWait: 10000
     minIdle: 1
-    name: root
+    name: userserver
     password: root
     testOnBorrow: false
     testWhileIdle: true
     timeBetweenEvictionRunsMillis: 18800
     url: jdbc:mysql://127.0.0.1:3306/microservice?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-    username: app
+    username: root
     validationQuery: select 'x'  
   redis:
     database: 0
@@ -71,10 +71,10 @@ spring:
           filters:
             - StripPrefix=1 # 去除请求地址前缀
 
-druid:
-  loginUsername:
-  loginPassword:
-  resetEnable: true
+#druid:
+ # loginUsername:
+  #loginPassword:
+  #resetEnable: true
 
 logging:
   level:
