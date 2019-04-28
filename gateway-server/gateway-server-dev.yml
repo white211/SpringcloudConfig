@@ -9,7 +9,7 @@ management:
 
 spring:
   application:
-    name: soa-zuul
+    name: user-server
   profiles:
     active: dev
   redis:
@@ -35,7 +35,7 @@ spring:
 logging:
   level:
     org.springframework.web: DEBUG
-    com.wkclz.soa.gateway: debug
+    #com.wkclz.soa.gateway: debug
 
 zuul:
   max:
