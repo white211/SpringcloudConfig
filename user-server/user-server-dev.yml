@@ -1,22 +1,29 @@
 server:
-  port: 8085
-  
+  port: 8005
+
 spring:
   application:
     name: user-server
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/microservice?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    name: user
+    initialSize: 0
+    maxActive: 20
+    minIdle: 1
+    maxWait: 10000
+    validationQuery: select 'x'
+    testOnBorrow: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 18800
+    filters: stat,wall
+    url: jdbc:mysql://test.wkclz.com:3306/microservice?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    filters: stat
-    
+    driverClassName: com.mysql.cj.jdbc.Driver
   redis:
     database: 0
-    host: 127.0.0.1
+    host: root
     port: 6379
     #password: cipher:/8hB5yiRCZ6GM4QFgf7YpvZPrfv/D1MK2+AMwlKB7Es=
     timeout: 3000
@@ -26,52 +33,10 @@ spring:
         maxWait: 3000
         maxIdle: 20
         minIdle: 0
-  jmx:
-    enabled: false
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          # 是否可以通过其他服务的serviceId来转发到具体的服务实例。默认为false
-          # 为true,自动创建路由,路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问
-          enabled: true
-          lowerCaseServiceId: true
 
-      default-filters:
-        - PrefixPath=/httpbin
-        - AddResponseHeader=X-Response-Default-Foo, Default-Bar
-
-      routes:
-        # =====================================
-        # to run server
-        # $ wscat --listen 9000
-        # to run client
-        # $ wscat --connect ws://localhost:8080/echo
-        - id: lz_cas
-          uri: lb://lz-cas
-          order: 9000
-          predicates:
-            - Path=/cas/**
-          filters:
-            - StripPrefix=1 # 去除请求地址前缀
-
-        # =====================================
-        - id: lz_sys
-          uri: lb://lz-sys
-          order: 9000
-          predicates:
-            - Path=/sys/**
-          filters:
-            - StripPrefix=1 # 去除请求地址前缀
-
-#druid:
- # loginUsername:
-  #loginPassword:
-  #resetEnable: true
 mybatis-plus:
     mapper-locations: classpath:/mybatis/mapper/*.xml
     typeAliasesPackage: com.white.userserver.pojo.entity
-#    typeEnumsPackage: com.naswork.erp.entity.enums
     global-config:
        id-type: 2
        field-strategy: 2
@@ -85,13 +50,21 @@ mybatis-plus:
        meta-object-handler:
     configuration:
        map-underscore-to-camel-case: true
-       cache-enabled: false
+       cache-enabled: falseue
+
+druid:
+  loginUsername:
+  loginPassword:
+  resetEnable: true
+
+#elasticsearch:
+  #host: 127.0.0.1
+  #port: 9200
+  #pool: 5
+  #cluster:
+   # name: es-dev
 
 logging:
   level:
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.http.server.reactive: DEBUG
-    org.springframework.web.reactive: DEBUG
-    reactor.ipc.netty: DEBUG
-    reactor.netty: DEBUG
-    com.wkclz.soa.gateway: debug
+    org.springframework.web: debug
+    #com.wkclz.cas: debug
