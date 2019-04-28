@@ -6,6 +6,21 @@ spring:
     name: user-server
   profiles:
     active: dev
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    filters: stat,wall
+    initialSize: 0
+    maxActive: 20
+    maxWait: 10000
+    minIdle: 1
+    name: root
+    password: root
+    testOnBorrow: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 18800
+    url: jdbc:mysql://127.0.0.1:3306/microservice?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: app
+    validationQuery: select 'x'  
   redis:
     database: 0
     host: 127.0.0.1
