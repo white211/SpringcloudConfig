@@ -60,10 +60,10 @@ mybatis-plus:
   jmx:
     enabled: false
 
-#druid:
-  #loginUsername:
-  #loginPassword:
-  #resetEnable: true
+druid:
+  loginUsername:
+  loginPassword:
+  resetEnable: true
 
 logging:
   level:
