@@ -12,6 +12,21 @@ spring:
     name: gateway-server
   profiles:
     active: dev
+ datasource:
+    name: user
+    initialSize: 0
+    maxActive: 20
+    minIdle: 1
+    maxWait: 10000
+    validationQuery: select 'x'
+    testOnBorrow: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 18800
+    filters: stat,wall
+    url: jdbc:mysql://127.0.0.1:3306/microservice?useUnicode=true&characterEncoding=utf8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
   redis:
     database: 0
     host: 127.0.0.1
@@ -24,6 +39,24 @@ spring:
         maxWait: 3000
         maxIdle: 20
         minIdle: 0
+
+mybatis-plus:
+    mapper-locations: classpath:/mybatis/mapper/*.xml
+    typeAliasesPackage: com.white.userserver.pojo.entity
+    global-config:
+       id-type: 2
+       field-strategy: 2
+       db-column-underline: true
+       refresh-mapper: true
+#       capital-mode: true
+#       key-generator:
+       logic-delete-value: 0
+       logic-not-delete-value: 0
+       sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+       meta-object-handler:
+    configuration:
+       map-underscore-to-camel-case: true
+       cache-enabled: false
   jmx:
     enabled: false
 
