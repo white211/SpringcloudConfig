@@ -12,8 +12,8 @@ spring:
     name: gateway-server
   profiles:
     active: dev
- datasource:
-    name: user
+  datasource:
+    name: gateway
     initialSize: 0
     maxActive: 20
     minIdle: 1
@@ -42,7 +42,7 @@ spring:
 
 mybatis-plus:
     mapper-locations: classpath:/mybatis/mapper/*.xml
-    typeAliasesPackage: com.white.userserver.pojo.entity
+    typeAliasesPackage: com.white.gateserver.pojo.entity
     global-config:
        id-type: 2
        field-strategy: 2
