@@ -33,6 +33,12 @@ spring:
         maxWait: 3000
         maxIdle: 20
         minIdle: 0
+  rabbimq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
 
 mybatis-plus:
     mapper-locations: classpath:/mybatis/mapper/*.xml
