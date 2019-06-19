@@ -40,25 +40,25 @@ spring:
         maxIdle: 20
         minIdle: 0
 
-mybatis-plus:
-    mapper-locations: classpath:/mybatis/mapper/*.xml
-    typeAliasesPackage: com.white.gatewayserver.pojo.entity
-    global-config:
-       id-type: 2
-       field-strategy: 2
-       db-column-underline: true
-       refresh-mapper: true
-#       capital-mode: true
-#       key-generator:
-       logic-delete-value: 0
-       logic-not-delete-value: 0
-       sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
-       meta-object-handler:
-    configuration:
-       map-underscore-to-camel-case: true
-       cache-enabled: false
-  jmx:
-    enabled: false
+#mybatis-plus:
+#    mapper-locations: classpath:/mybatis/mapper/*.xml
+#    typeAliasesPackage: com.white.gatewayserver.pojo.entity
+#    global-config:
+#       id-type: 2
+#       field-strategy: 2
+#       db-column-underline: true
+#       refresh-mapper: true
+##       capital-mode: true
+##       key-generator:
+#       logic-delete-value: 0
+#       logic-not-delete-value: 0
+#       sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+#       meta-object-handler:
+#    configuration:
+#       map-underscore-to-camel-case: true
+#       cache-enabled: false
+#  jmx:
+#    enabled: false
 
 druid:
   loginUsername:
