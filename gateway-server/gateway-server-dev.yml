@@ -81,4 +81,9 @@ zuul:
     user:
       path: /user/**
       serviceId: user-server
-  
+    order:
+      path: /order/**
+      serviceId: order-server
+    resource:
+      path: /resource/**
+      serviceId: resource-server
