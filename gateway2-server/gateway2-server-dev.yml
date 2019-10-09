@@ -42,7 +42,14 @@ spring:
   cloud:
     gateway:
       routes:
-       - id:
+        - id: user-server
+        uri: http://localhost:8085
+        predicates:
+          - Path=/user
+        - id: order-server
+        uri: http://localhost:8086
+        predicates:
+          - Path=/order
 
 #mybatis-plus:
 #    mapper-locations: classpath:/mybatis/mapper/*.xml
