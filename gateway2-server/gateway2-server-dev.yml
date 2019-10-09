@@ -45,11 +45,11 @@ spring:
         - id: user-server
         uri: http://localhost:8085
         predicates:
-          - Path=/user
+          - Path=/user/*
         - id: order-server
         uri: http://localhost:8086
         predicates:
-          - Path=/order
+          - Path=/order/*
 
 #mybatis-plus:
 #    mapper-locations: classpath:/mybatis/mapper/*.xml
