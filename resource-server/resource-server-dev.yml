@@ -40,7 +40,7 @@ spring:
     password: guest
     publisher-confirms: true
 
-mybatis-plus:
+mybatis:
     mapper-locations: classpath:/mybatis/mapper/*.xml
     typeAliasesPackage: com.white.resourceserver.pojo.entity
     global-config:

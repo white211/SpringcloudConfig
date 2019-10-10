@@ -34,7 +34,7 @@ spring:
         maxIdle: 20
         minIdle: 0
 
-mybatis-plus:
+mybatis:
     mapper-locations: classpath:/mybatis/mapper/*.xml
     typeAliasesPackage: com.white.userserver.pojo.entity
     global-config:
