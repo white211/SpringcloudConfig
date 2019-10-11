@@ -46,7 +46,7 @@ mybatis:
 #       key-generator:
        logic-delete-value: 0
        logic-not-delete-value: 0
-       sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+#       sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
        meta-object-handler:
     configuration:
        map-underscore-to-camel-case: true
