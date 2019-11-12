@@ -5,3 +5,5 @@
 - 8085 user
 - 8086 order
 - 8087 resource
+- 8088 report
+- 8089 gateway2
