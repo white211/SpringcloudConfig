@@ -36,7 +36,7 @@ spring:
 
 mybatis-plus:
     mapper-locations: classpath:/mybatis/mapper/*.xml
-    typeAliasesPackage: com.niushibang.report.pojo.entity
+    typeAliasesPackage: com.white.report.pojo.entity
     global-config:
        id-type: 2
        field-strategy: 2
