@@ -36,7 +36,7 @@ spring:
 
 mybatis-plus:
     mapper-locations: classpath:/mybatis/mapper/*.xml
-    typeAliasesPackage: com.white.userserver.pojo.entity
+    typeAliasesPackage: com.white.user.pojo.entity
     global-config:
        id-type: 2
        field-strategy: 2
