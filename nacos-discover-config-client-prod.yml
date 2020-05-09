@@ -1,0 +1,3 @@
+config: config-from-git-prod
+server:
+  port: 8033

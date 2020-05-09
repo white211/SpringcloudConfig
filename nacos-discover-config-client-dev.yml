@@ -1,1 +1,3 @@
-config: config-from-git
+config: config-from-git-dev
+server:
+  port: 8011

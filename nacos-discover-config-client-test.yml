@@ -1,0 +1,3 @@
+config: config-from-git-test
+server:
+  port: 8022
